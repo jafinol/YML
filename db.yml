@@ -1,0 +1,65 @@
+# Modify this code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+Users
+-
+userID PK int 
+email string
+password string
+phone string
+
+Profile
+-
+ProfileID PK int
+userID int FK >- Users.userID
+Name string INDEX
+email string
+type string
+phone string
+
+Post
+-
+PostID PK int
+ProfileID int FK >- Profile.ProfileID
+create_at date
+update_at date
+total_likes int
+total_comments
+
+PostComments
+----
+PostCommentsID PK int
+PostID int FK >- Post.PostID 
+Comment string
+create_at date
+update_at date
+
+PostLikes
+----
+PostLikesID PK int
+PostID int FK >- Post.PostID 
+Comment string
+create_at date
+update_at date
+
+
+TagPost
+----
+PostID int FK >- Post.PostID 
+tagID int  FK >- Tag.tagID 
+
+Tag
+----
+tagID PK int
+title string
+
+friends
+-
+followingID PK int 
+userID int FK >- Users.userID
+
+
+
+
+
