@@ -24,8 +24,7 @@ PostID PK int
 ProfileID int FK >- Profile.ProfileID
 create_at date
 update_at date
-total_likes int
-total_comments
+file blob
 
 PostComments
 ----
